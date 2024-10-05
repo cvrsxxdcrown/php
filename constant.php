@@ -15,9 +15,9 @@ define('CONSTANT', 'Алекс');
     <h1>Константы</h1>
     <?php
     if (defined('CONSTANT')) {
-        echo "Значение константы MY_CONSTANT: " . MY_CONSTANT . "<br>";
+        echo "Значение константы CONSTANT: " . CONSTANT . "<br>";
     } else {
-        echo "Константа MY_CONSTANT не определена.<br>";
+        echo "Константа CONSTANT не определена.<br>";
     }
     echo "Текущая версия PHP: " . PHP_VERSION . "<br>";
     echo "Директория скрипта: " . __DIR__ . "<br>";
