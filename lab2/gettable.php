@@ -1,31 +1,30 @@
 <?php
 declare(strict_types=1);
 
-/**
- * @param int 
- * @param int 
- * @param string 
- * @return int 
- */
 function getTable(int $cols = 10, int $rows = 10, string $color = 'yellow'): int {
-    static $count = 0;
-    $count++;
+    static $count = 0; 
+    $count++; 
 
-    echo "<table>";
-    for ($tr = 1; $tr <= $rows; $tr++) {
+    echo "<table style='border: 2px solid black; border-collapse: collapse;'>";
+
+    echo "<tr>";
+    echo "<th style='background-color: $color;'></th>"; 
+    for ($col = 1; $col <= $cols; $col++) {
+        echo "<th style='background-color: $color;'>$col</th>";
+    }
+    echo "</tr>";
+
+    for ($row = 1; $row <= $rows; $row++) {
         echo "<tr>";
-        for ($td = 1; $td <= $cols; $td++) {
-            if ($tr === 1 || $td === 1) {
-                echo "<th style='background-color:$color'>" . $tr * $td . "</th>";
-            } else {
-                echo "<td>" . $tr * $td . "</td>";
-            }
+        echo "<th style='background-color: $color;'>$row</th>"; 
+        for ($col = 1; $col <= $cols; $col++) {
+            echo "<td>" . ($row * $col) . "</td>"; 
         }
         echo "</tr>";
     }
-    echo "</table><br>";
-    
-    return $count;
+    echo "</table>";
+
+    return $count; 
 }
 ?>
 
@@ -40,15 +39,12 @@ function getTable(int $cols = 10, int $rows = 10, string $color = 'yellow'): int
         table {
             border: 2px solid black;
             border-collapse: collapse;
+            margin-bottom: 20px; /* Отступ между таблицами */
         }
-
         th, td {
             padding: 10px;
             border: 1px solid black;
-        }
-
-        th {
-            background-color: yellow;
+            text-align: center;
         }
     </style>
 </head>
@@ -56,10 +52,10 @@ function getTable(int $cols = 10, int $rows = 10, string $color = 'yellow'): int
     <h1>Таблица умножения</h1>
 
     <?php
-    getTable();     
-    getTable(5);        
-    getTable(5, 5, 'lightblue'); 
-    echo "Функция getTable() вызвана " . getTable() . " раз.";
+    getTable(5, 5, 'red');
+    getTable(10, 10, 'yellow');
+    getTable(8, 10, 'yellow');
+    getTable(5, 5, 'yellow');
     ?>
 </body>
 </html>

@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 $leftMenu = [
-    ['link' => 'Домой', 'href' => 'index.php'],
-    ['link' => 'О нас', 'href' => 'about.php'],
-    ['link' => 'Контакты', 'href' => 'contact.php'],
+    ['link' => 'Домой', 'href' => '***'],
+    ['link' => 'О нас', 'href' => '***'],
+    ['link' => 'Контакты', 'href' => '***'],
     ['link' => 'Таблица умножения', 'href' => 'table.php'],
-    ['link' => 'Калькулятор', 'href' => 'calc.php']
+    ['link' => 'Калькулятор', 'href' => '***']
 ];
 ?>
 <!DOCTYPE html>

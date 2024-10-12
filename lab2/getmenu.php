@@ -1,11 +1,6 @@
 <?php
 declare(strict_types=1);
 
-/**
- * @param array
- * @param bool 
- * @return void
- */
 function getMenu(array $menu, bool $vertical = true): void {
     $class = $vertical ? "menu vertical" : "menu horizontal";
     echo "<ul class='$class'>";
@@ -18,11 +13,11 @@ function getMenu(array $menu, bool $vertical = true): void {
 }
 
 $leftMenu = [
-    ['link' => 'Домой', 'href' => 'index.php'],
-    ['link' => 'О нас', 'href' => 'about.php'],
-    ['link' => 'Контакты', 'href' => 'contact.php'],
+    ['link' => 'Домой', 'href' => '***'],
+    ['link' => 'О нас', 'href' => '***'],
+    ['link' => 'Контакты', 'href' => '***'],
     ['link' => 'Таблица умножения', 'href' => 'table.php'],
-    ['link' => 'Калькулятор', 'href' => 'calc.php']
+    ['link' => 'Калькулятор', 'href' => '***']
 ];
 ?>
 
