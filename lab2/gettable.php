@@ -39,7 +39,7 @@ function getTable(int $cols = 10, int $rows = 10, string $color = 'yellow'): int
         table {
             border: 2px solid black;
             border-collapse: collapse;
-            margin-bottom: 20px; /* Отступ между таблицами */
+            margin-bottom: 20px; 
         }
         th, td {
             padding: 10px;
@@ -53,9 +53,13 @@ function getTable(int $cols = 10, int $rows = 10, string $color = 'yellow'): int
 
     <?php
     getTable(5, 5, 'red');
+    echo "<br>";
     getTable(10, 10, 'yellow');
+    echo "<br>"; 
     getTable(8, 10, 'yellow');
-    getTable(5, 5, 'yellow');
+    echo "<br>"; 
+    $count = getTable(5, 5, 'yellow'); 
+    echo "<p>Функция getTable была вызвана $count раз(а).</p>";
     ?>
 </body>
 </html>
