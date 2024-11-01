@@ -1,13 +1,14 @@
 <?php
 declare(strict_types=1);
 
-require_once 'sss/inc/lib.inc.php'; 
-require_once 'sss/inc/data.inc.php'; 
+require_once 'sss/inc/lib.inc.php';
+require_once 'sss/inc/data.inc.php';
+
 
 $title = 'Сайт нашей школы';
 $welcome = getGreeting(); 
 $header = "$welcome, Гость!";
-$id = strtolower(strip_tags(trim($_GET['id'] ?? ''))); 
+$id = strtolower(strip_tags(trim($_GET['id'] ?? '')));
 
 switch ($id) {
     case 'about':
@@ -27,22 +28,18 @@ switch ($id) {
         $header = 'Калькулятор';
         break;
 }
-
-
 ?>
 
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?></title>
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="sss/style.css">
 </head>
 <body>
 <header>
-    <img src="logo.png" width="130" height="80" alt="Наш логотип" class="logo">
+    <img src="sss/logo.png" width="130" height="80" alt="Наш логотип" class="logo">
     <span class="slogan">приходите к нам учиться</span>
 </header>
 
@@ -63,7 +60,7 @@ switch ($id) {
             include 'sss/calc.php';
             break;
         default:
-            include 'sss/index.inc.php'; 
+            include 'sss/index.inc.php';
     }
     ?>
 </section>

@@ -12,3 +12,4 @@ $leftMenu = [
     ['link' => 'Калькулятор', 'href' => 'index.php?id=calc'],
 ];
 ?>
+
