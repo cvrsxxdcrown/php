@@ -4,7 +4,6 @@ declare(strict_types=1);
 require_once 'sss/inc/lib.inc.php';
 require_once 'sss/inc/data.inc.php';
 
-
 $title = 'Сайт нашей школы';
 $welcome = getGreeting(); 
 $header = "$welcome, Гость!";
@@ -60,7 +59,7 @@ switch ($id) {
             include 'sss/calc.php';
             break;
         default:
-            include 'sss/index.inc.php';
+            include 'sss/inc/index.inc.php';
     }
     ?>
 </section>
@@ -75,7 +74,7 @@ switch ($id) {
 </nav>
 
 <footer>
-    &copy; <?= date('Y') ?> Супер Мега Веб-мастер
+    <?php include 'sss/inc/bottom.inc.php'; ?>
 </footer>
 </body>
 </html>

@@ -2,8 +2,10 @@
 declare(strict_types=1);
 
 /**
- * @param int $cols
- * @param int $rows
+ * Отрисовка таблицы умножения.
+ *
+ * @param int $cols К
+ * @param int $rows 
  * @param string $color 
  */
 function drawTable(int $cols, int $rows, string $color): void {
