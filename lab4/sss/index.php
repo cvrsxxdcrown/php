@@ -1,34 +1,55 @@
 <?php
 declare(strict_types=1);
 
-require_once 'sss/inc/lib.inc.php';
-require_once 'sss/inc/data.inc.php';
+function getGreeting(): string {
+    $hour = (int)date('H');
+    if ($hour < 6) {
+        return 'Доброй ночи';
+    } elseif ($hour < 12) {
+        return 'Доброе утро';
+    } elseif ($hour < 18) {
+        return 'Добрый день';
+    } else {
+        return 'Добрый вечер';
+    }
+}
+
+$title = 'Сайт нашей школы';
+$welcome = getGreeting(); 
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Сайт нашей школы</title>
-  <link rel="stylesheet" href="sss/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $title ?></title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <header>
-    <?php include 'sss/inc/top.inc.php'; ?>
-  </header>
+<header>
+    <img src="../logo.png" width="130" height="80" alt="Наш логотип" class="logo">
+    <span class="slogan">приходите к нам учиться</span>
+</header>
 
-  <section>
-    <h1>Добро пожаловать на наш сайт!</h1>
-    <?php include 'sss/inc/index.inc.php'; ?>
-  </section>
+<section>
+    <h1><?= $welcome ?>, Гость!</h1>
+    <p>Добро пожаловать на наш сайт! Здесь вы найдете информацию о нашей школе, контакты, расписание занятий и многое другое.</p>
+</section>
 
-  <nav>
-    <?php include 'sss/inc/menu.inc.php'; ?>
-  </nav>
+<nav>
+    <h2>Навигация по сайту</h2>
+    <ul>
+        <li><a href='index.php?id=about'>О нас</a></li>
+        <li><a href='index.php?id=contact'>Контакты</a></li>
+        <li><a href='index.php?id=table'>Таблица умножения</a></li>
+        <li><a href='index.php?id=calc'>Калькулятор</a></li>
+    </ul>
+</nav>
 
-  <footer>
-    <?php include 'sss/inc/bottom.inc.php'; ?>
-  </footer>
+<footer>
+    &copy; <?= date('Y') ?> Супер Мега Веб-мастер
+</footer>
 </body>
 </html>

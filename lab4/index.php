@@ -1,12 +1,15 @@
 <?php
 declare(strict_types=1);
-require_once '<sss>inc/lib.inc.php';
-require_once 'sss/inc/data.inc.php';
-$title = 'Сайт нашей школы';
-$header = "$welcome, Гость!";
-$id = strtolower(strip_tags(trim($_GET['id'] ?? '')));
 
-switch($id){ 
+require_once 'sss/inc/lib.inc.php'; 
+require_once 'sss/inc/data.inc.php'; 
+
+$title = 'Сайт нашей школы';
+$welcome = getGreeting(); 
+$header = "$welcome, Гость!";
+$id = strtolower(strip_tags(trim($_GET['id'] ?? ''))); 
+
+switch ($id) {
     case 'about':
         $title = 'О сайте';
         $header = 'О нашем сайте';
@@ -24,23 +27,30 @@ switch($id){
         $header = 'Калькулятор';
         break;
 }
+
+
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?></title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
 <header>
-    <?php include 'sss/inc/top.inc.php'; ?>
+    <img src="logo.png" width="130" height="80" alt="Наш логотип" class="logo">
+    <span class="slogan">приходите к нам учиться</span>
 </header>
+
 <section>
     <h1><?= $header ?></h1>
     <?php
-    switch($id){
-        case 'about': 
+    switch ($id) {
+        case 'about':
             include 'sss/about.php';
             break;
         case 'contact':
@@ -57,13 +67,18 @@ switch($id){
     }
     ?>
 </section>
+
 <nav>
     <h2>Навигация по сайту</h2>
-    <?php include 'sss/inc/menu.inc.php'; ?>
+    <ul>
+        <?php foreach ($leftMenu as $item): ?>
+            <li><a href="<?= $item['href'] ?>"><?= $item['link'] ?></a></li>
+        <?php endforeach; ?>
+    </ul>
 </nav>
+
 <footer>
-    <p>&copy; <?= date('Y') ?> Сайт нашей школы</p>
-    <?php include 'sss/inc/bottom.inc.php'; ?>
+    &copy; <?= date('Y') ?> Супер Мега Веб-мастер
 </footer>
 </body>
 </html>
