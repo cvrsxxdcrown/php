@@ -1,0 +1,5 @@
+<?php
+declare(strict_types=1);
+?>
+<img src="logo.png" width="130" height="80" alt="Наш логотип" class="logo">
+<span class="slogan">приходите к нам учиться</span>
