@@ -6,8 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $num1 = filter_input(INPUT_POST, 'num1', FILTER_VALIDATE_FLOAT);
     $num2 = filter_input(INPUT_POST, 'num2', FILTER_VALIDATE_FLOAT);
     $operator = filter_input(INPUT_POST, 'operator', FILTER_SANITIZE_STRING);
-
-    // Проверка, что оба числа введены корректно
+    
     if ($num1 === false || $num2 === false) {
         $result = "Пожалуйста, введите числовые значения.";
     } else {
