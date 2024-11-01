@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
-require_once 'inc/lib.inc.php';
-require_once 'inc/data.inc.php';
+require_once '<sss>inc/lib.inc.php';
+require_once 'sss/inc/data.inc.php';
 $title = 'Сайт нашей школы';
 $header = "$welcome, Гость!";
 $id = strtolower(strip_tags(trim($_GET['id'] ?? '')));
@@ -34,36 +34,36 @@ switch($id){
 </head>
 <body>
 <header>
-    <?php include 'inc/top.inc.php'; ?>
+    <?php include 'sss/inc/top.inc.php'; ?>
 </header>
 <section>
     <h1><?= $header ?></h1>
     <?php
     switch($id){
         case 'about': 
-            include 'about.php';
+            include 'sss/about.php';
             break;
         case 'contact':
-            include 'contact.php';
+            include 'sss/contact.php';
             break;
         case 'table':
-            include 'table.php';
+            include 'sss/table.php';
             break;
         case 'calc':
-            include 'calc.php';
+            include 'sss/calc.php';
             break;
         default:
-            include 'index.inc.php'; 
+            include 'sss/index.inc.php'; 
     }
     ?>
 </section>
 <nav>
     <h2>Навигация по сайту</h2>
-    <?php include 'inc/menu.inc.php'; ?>
+    <?php include 'sss/inc/menu.inc.php'; ?>
 </nav>
 <footer>
     <p>&copy; <?= date('Y') ?> Сайт нашей школы</p>
-    <?php include 'inc/bottom.inc.php'; ?>
+    <?php include 'sss/inc/bottom.inc.php'; ?>
 </footer>
 </body>
 </html>
