@@ -13,7 +13,8 @@ declare(strict_types=1);
 <h1>Калькулятор</h1>
 
 <?php
-$result = null;
+$result = null; 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $num1 = filter_input(INPUT_POST, 'num1', FILTER_VALIDATE_FLOAT);
     $num2 = filter_input(INPUT_POST, 'num2', FILTER_VALIDATE_FLOAT);
@@ -40,10 +41,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
-if ($result !== null) {
-    echo "<p>Результат: $result</p>";
-}
 ?>
+
+<?php if ($result !== null): ?>
+    <p><strong>Результат: <?= htmlspecialchars((string)$result) ?></strong></p>
+<?php endif; ?>
 
 <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
     <p><label for="num1">Число 1:</label>
