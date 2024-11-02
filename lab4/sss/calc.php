@@ -2,14 +2,6 @@
 declare(strict_types=1);
 ?>
 
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Он-лайн калькулятор</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
 
 <?php
 $result = null;
@@ -63,6 +55,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php if ($result !== null): ?>
     <p><strong>Результат: <?= htmlspecialchars((string)$result) ?></strong></p>
 <?php endif; ?>
-
-</body>
-</html>

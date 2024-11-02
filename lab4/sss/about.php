@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>О сайте</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
   <section>
     <p>Сайт создан на общественных началах и управляется на некоммерческой основе. Все фотографии и материалы предоставлены и используются с ведома и при участии администрации школы.</p>
     <h3>Цели создания проекта</h3>
@@ -30,8 +20,3 @@
       <li><a href="index.php?id=calc">Калькулятор</a></li>
     </ul>
   </nav>
-  <footer>
-    <?php include 'inc/bottom.inc.php'; ?>
-  </footer>
-</body>
-</html>
