@@ -31,13 +31,6 @@ $rows = $rows ?? 10;
 $color = $color ?? '#ffff00';
 ?>
 
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Таблица умножения</title>
-</head>
-<body>
 <section>
     <form action="<?= $_SERVER['REQUEST_URI'] ?>" method="POST">
         <label>Строки: <input type="number" name="rows" value="<?= $rows ?>" required></label>
@@ -49,5 +42,3 @@ $color = $color ?? '#ffff00';
     <h2>Таблица умножения</h2>
     <?php drawTable($cols, $rows, $color); ?>
 </section>
-</body>
-</html>
