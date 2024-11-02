@@ -2,7 +2,6 @@
 declare(strict_types=1);
 
 $now = time();
-$birthday = mktime(0, 0, 0, 7, 1, 1995);  
 $hour = (int) getdate()['hours'];
 
 if ($hour >= 0 && $hour < 6) {
@@ -15,6 +14,13 @@ if ($hour >= 0 && $hour < 6) {
     $welcome = 'Добрый вечер';
 }
 
+$currentYear = (int) date('Y');
+$birthday = mktime(0, 0, 0, 10, 19, $currentYear); 
+
+if ($now > $birthday) {
+    $birthday = mktime(0, 0, 0, 10, 19, $currentYear + 1);
+}
+
 setlocale(LC_TIME, 'ru_RU.UTF-8');
 $formatter = new IntlDateFormatter('ru_RU', IntlDateFormatter::LONG, IntlDateFormatter::LONG);
 $currentDate = $formatter->format($now);
@@ -24,7 +30,6 @@ $daysLeft = (int)($diffSeconds / (60 * 60 * 24));
 $hoursLeft = (int)(($diffSeconds % (60 * 60 * 24)) / (60 * 60));
 $minutesLeft = (int)(($diffSeconds % (60 * 60)) / 60);
 $secondsLeft = (int)($diffSeconds % 60);
-
 ?>
 <!DOCTYPE html>
 <html lang="ru">
