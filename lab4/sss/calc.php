@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <form action="<?= htmlspecialchars($_SERVER['REQUEST_URI']) ?>" method="post">
     <p><label for="num1">Число 1:</label>
-    <input type="text" name="num1" id="num1" value="<?= htmlspecialchars($_POST['num1'] ?? '') ?>" required></p>
+    <input type="number" name="num1" id="num1" value="<?= htmlspecialchars($_POST['num1'] ?? '') ?>" required></p>
 
     <p><label for="operator">Оператор:</label>
     <select name="operator" id="operator">
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </select></p>
 
     <p><label for="num2">Число 2:</label>
-    <input type="text" name="num2" id="num2" value="<?= htmlspecialchars($_POST['num2'] ?? '') ?>" required></p>
+    <input type="number" name="num2" id="num2" value="<?= htmlspecialchars($_POST['num2'] ?? '') ?>" required></p>
 
     <button type="submit">Считать!</button>
 </form>

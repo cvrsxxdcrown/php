@@ -8,12 +8,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <img src="logo.png" width="130" height="80" alt="Наш логотип" class="logo">
-    <span class="slogan">приходите к нам учиться</span>
-  </header>
   <section>
-    <h1>Обратная связь</h1>
     <h3>Адрес</h3>
     <address>123456 Москва, Малый Американский переулок 21</address>
     <h3>Задайте вопрос</h3>
@@ -25,6 +20,7 @@
       <input type="submit" value="Отправить">
     </form>
   </section>
+
   <nav>
     <h2>Навигация по сайту</h2>
     <ul>
@@ -35,8 +31,10 @@
       <li><a href="index.php?id=calc">Калькулятор</a></li>
     </ul>
   </nav>
+
   <footer>
     <?php include 'inc/bottom.inc.php'; ?>
   </footer>
+
 </body>
 </html>
