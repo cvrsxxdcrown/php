@@ -10,10 +10,9 @@ declare(strict_types=1);
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Калькулятор</h1>
 
 <?php
-$result = null; 
+$result = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $num1 = filter_input(INPUT_POST, 'num1', FILTER_VALIDATE_FLOAT);
@@ -43,11 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<?php if ($result !== null): ?>
-    <p><strong>Результат: <?= htmlspecialchars((string)$result) ?></strong></p>
-<?php endif; ?>
-
-<form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+<form action="<?= htmlspecialchars($_SERVER['REQUEST_URI']) ?>" method="post">
     <p><label for="num1">Число 1:</label>
     <input type="text" name="num1" id="num1" value="<?= htmlspecialchars($_POST['num1'] ?? '') ?>" required></p>
 
@@ -64,6 +59,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <button type="submit">Считать!</button>
 </form>
+
+<?php if ($result !== null): ?>
+    <p><strong>Результат: <?= htmlspecialchars((string)$result) ?></strong></p>
+<?php endif; ?>
 
 </body>
 </html>
