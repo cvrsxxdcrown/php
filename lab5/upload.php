@@ -1,20 +1,24 @@
 <?php
 declare(strict_types=1);
 
-$uploadDir = __DIR__ . '/upload';
+$uploadDir = __DIR__ . '/upload'; // Папка для сохранения загруженных файлов
 
+// Проверка отправки файла
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['fupload'])) {
     $file = $_FILES['fupload'];
 
+    // Вывод информации о загружаемом файле
     echo "Имя файла: " . htmlspecialchars($file['name']) . "<br>";
     echo "Размер файла: " . $file['size'] . " байт<br>";
     echo "Временное имя файла: " . htmlspecialchars($file['tmp_name']) . "<br>";
     echo "Тип файла: " . mime_content_type($file['tmp_name']) . "<br>";
     echo "Код ошибки: " . $file['error'] . "<br>";
 
+    // Проверка типа файла
     if (mime_content_type($file['tmp_name']) === 'image/jpeg') {
-        $newFileName = md5_file($file['tmp_name']) . '.jpg';
+        $newFileName = md5_file($file['tmp_name']) . '.jpg'; // Генерируем имя файла на основе MD5-хеша
 
+        // Перемещение файла в каталог upload
         if (move_uploaded_file($file['tmp_name'], "$uploadDir/$newFileName")) {
             echo "<p>Файл успешно загружен как $newFileName</p>";
         } else {
@@ -33,8 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['fupload'])) {
     <title>Загрузка файла на сервер</title>
 </head>
 <body>
-<div>
-</div>
 <form enctype="multipart/form-data" action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
     <p>
         <input type="hidden" name="MAX_FILE_SIZE" value="1024000">

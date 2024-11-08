@@ -5,8 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $subject = trim(htmlspecialchars($_POST['subject'] ?? ''));
     $body = trim(htmlspecialchars($_POST['body'] ?? ''));
 
-    $to = 'your-email@example.com';
-    $from = 'admin@center.ogu';
+    $to = 'aigrevtcev@gmail.com'; 
+    $from = 'admin@center.ogu\r\n';
     $headers = "From: $from";
 
     if (mail($to, $subject, $body, $headers)) {
@@ -25,11 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-    <h1>Обратная связь</h1>
-</header>
-
 <section>
+    <h1>Обратная связь</h1>
     <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
         <label>Тема письма:</label><br>
         <input type="text" name="subject" size="50"><br>
