@@ -7,7 +7,7 @@ $uploadDir = __DIR__ . '/upload'; // Папка для сохранения за
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['fupload'])) {
     $file = $_FILES['fupload'];
 
-    // Вывод информации о загружаемом файле
+
     echo "Имя файла: " . htmlspecialchars($file['name']) . "<br>";
     echo "Размер файла: " . $file['size'] . " байт<br>";
     echo "Временное имя файла: " . htmlspecialchars($file['tmp_name']) . "<br>";
@@ -16,9 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['fupload'])) {
 
     // Проверка типа файла
     if (mime_content_type($file['tmp_name']) === 'image/jpeg') {
-        $newFileName = md5_file($file['tmp_name']) . '.jpg'; // Генерируем имя файла на основе MD5-хеша
+        $newFileName = md5_file($file['tmp_name']) . '.jpg'; 
 
-        // Перемещение файла в каталог upload
+
         if (move_uploaded_file($file['tmp_name'], "$uploadDir/$newFileName")) {
             echo "<p>Файл успешно загружен как $newFileName</p>";
         } else {
