@@ -7,7 +7,6 @@ ini_set("session.use_only_cookies", "0");
 ini_set("session.use_trans_sid", "1");
 session_start();
 
-include 'session/visited.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -24,6 +23,6 @@ include 'session/visited.inc.php';
             <li><a href="session/page3.php">Страница 3</a></li>
         </ul>
     </nav>
-    <?php displayVisitedPages();?>
 </body>
 </html>
+<? include 'session/visited.inc.php' ?>
