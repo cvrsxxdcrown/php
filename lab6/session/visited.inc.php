@@ -13,7 +13,3 @@ function displayVisitedPages(): void {
         echo '<p>Нет посещённых страниц.</p>';
     }
 }
-
-
-displayVisitedPages();
-?>

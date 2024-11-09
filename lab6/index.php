@@ -24,8 +24,6 @@ include 'session/visited.inc.php';
             <li><a href="session/page3.php">Страница 3</a></li>
         </ul>
     </nav>
-
-    <h2>Список посещённых страниц</h2>
-    <?php displayVisitedPages(); // Функция для отображения посещённых страниц ?>
+    <?php displayVisitedPages();?>
 </body>
 </html>
