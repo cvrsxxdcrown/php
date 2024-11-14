@@ -101,7 +101,7 @@ $result = $mysqli->query($sql);
 
         textarea {
             resize: none;
-            height: 100px; /* Фиксированная высота */
+            height: 100px; 
         }
 
         input[type="submit"] {
