@@ -182,9 +182,7 @@ $result = $mysqli->query($sql);
 if ($result->num_rows > 0): 
     while ($row = $result->fetch_assoc()): ?>
         <div class="message">
-            <h3><?php echo htmlspecialchars($row['first_name']) . ' ' . htmlspecialchars($row['last_name']); ?>
-                <span><?php echo date('d.m.Y H:i', strtotime($row['created_at'])); ?></span>
-            </h3>
+            <h3><?php echo htmlspecialchars($row['first_name']) . ' ' . htmlspecialchars($row['last_name']); ?></h3>
             <p><?php echo nl2br(htmlspecialchars($row['msg'])); ?></p>
             <a href="?delete=<?php echo $row['id']; ?>">Удалить</a>
         </div>
