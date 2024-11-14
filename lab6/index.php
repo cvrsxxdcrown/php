@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 include 'session/cookie.php';
 
-ini_set("session.use_only_cookies", "0");
-ini_set("session.use_trans_sid", "1");
+ini_set("session.use_only_cookies", "1"); 
+ini_set("session.use_trans_sid", "0"); 
 session_start();
 
 ?>
@@ -25,4 +25,5 @@ session_start();
     </nav>
 </body>
 </html>
-<? include 'session/visited.inc.php' ?>
+
+<?php include 'session/visited.inc.php'; ?>
