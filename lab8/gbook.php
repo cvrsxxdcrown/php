@@ -20,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['first_name'], $_POST['
     $msg = trim(htmlspecialchars($mysqli->real_escape_string($_POST['msg'])));
 
     if (!empty($first_name) && !empty($email) && !empty($msg)) {
-        // Проверка корректности почты
         if (!preg_match('/^[a-zA-Z0-9._%+-]+@(yandex\.ru|mail\.ru|gmail\.com)$/', $email)) {
             echo "Почтовый адрес должен быть с доменом yandex.ru, mail.ru или gmail.com.";
         } else {
@@ -64,80 +63,101 @@ $result = $mysqli->query($sql);
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background-color: #f0f2f5;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
         }
 
         h1 {
             color: #333;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
         form {
-            background-color: #fff;
+            background-color: #ffffff;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
             max-width: 500px;
-            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
         }
 
         input, textarea {
             width: 100%;
+            box-sizing: border-box;
             padding: 10px;
-            margin: 10px 0;
+            margin-bottom: 15px;
             border-radius: 5px;
             border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        textarea {
+            resize: none;
+            height: 100px; /* Фиксированная высота */
         }
 
         input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
+            background-color: #28a745;
+            color: #ffffff;
             border: none;
             cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
         }
 
         input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: #218838;
+        }
+
+        .messages-container {
+            width: 90%;
+            max-width: 500px;
         }
 
         .message {
-            background-color: #fff;
+            background-color: #ffffff;
             padding: 15px;
-            margin: 15px 0;
+            margin-bottom: 15px;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 800px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .message h3 {
             color: #333;
+            margin: 0 0 10px;
+            font-size: 18px;
         }
 
         .message p {
-            color: #666;
+            color: #555;
+            font-size: 15px;
+            line-height: 1.5;
+            margin: 0;
         }
 
         .message a {
-            color: #f44336;
+            color: #dc3545;
             text-decoration: none;
+            font-size: 14px;
+            display: block;
+            margin-top: 10px;
         }
 
         .message a:hover {
             text-decoration: underline;
         }
 
-        .messages-container {
-            width: 100%;
-            max-width: 800px;
-            margin-top: 30px;
+        p {
+            text-align: center;
+            color: #666;
         }
     </style>
 </head>
@@ -153,7 +173,7 @@ $result = $mysqli->query($sql);
     Ваш E-mail:<br>
     <input type="email" name="email" required><br>
     Сообщение:<br>
-    <textarea name="msg" cols="50" rows="5" required></textarea><br>
+    <textarea name="msg" required></textarea><br>
     <input type="submit" value="Добавить!">
 </form>
 
