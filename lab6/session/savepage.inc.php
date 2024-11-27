@@ -1,24 +1,12 @@
 <?php
-declare(strict_types=1);
+if (!isset($_SESSION['visitedPages'])) {
 
-/**
- * Сохраняет текущую страницу в сессии
- *
- * @param string $page URL страницы для сохранения
- */
-function saveCurrentPage(string $page): void {
-    if (!isset($_SESSION['visited_pages'])) {
-        $_SESSION['visited_pages'] = [];
-    }
+    $_SESSION['visitedPages'] = [];
 
-    $_SESSION['visited_pages'][] = $page;
-
-    // Ограничение на количество сохранённых страниц (например, 10)
-    if (count($_SESSION['visited_pages']) > 10) {
-        array_shift($_SESSION['visited_pages']);
-    }
 }
 
-// Сохранение текущей страницы
-saveCurrentPage($_SERVER['PHP_SELF']);
+$current_page = $_SERVER['REQUEST_URI'];
+$parsed_url = parse_url($current_page, PHP_URL_PATH);
+$_SESSION['visitedPages'][] = $parsed_url;
+
 ?>
